@@ -53,14 +53,21 @@ Arc-Dark Color Scheme
 }
 
 /* The whole bar */
-#waybar {
+window.HDMI-A-1 #waybar {
     background: transparent;
     color: @text;
     font-family: FiraCode Nerd Font Mono;
     font-size: 16px;
 }
 
-/* Every modules */
+window.eDP-1 #waybar {
+    background: transparent;
+    color: @text;
+    font-family: FiraCode Nerd Font Mono;
+    font-size: 14px;
+}
+
+/* Every module */
 #battery,
 #clock,
 #backlight,
@@ -196,32 +203,45 @@ Arc-Dark Color Scheme
     border-bottom: 2px solid #a6e3a1;
 }
 
-#workspaces button:nth-child(4),
-#workspaces button:nth-child(8) {
+window.HDMI-A-1 #workspaces button:nth-child(4),
+window.HDMI-A-1 #workspaces button:nth-child(8) {
     margin-right: 20px;
     border-radius: 0px 20px 20px 0px;
     background-color: @base1;
     border-right: 2px solid #a6e3a1;
 }
 
-#workspaces button:nth-child(5) {
+window.HDMI-A-1 #workspaces button:nth-child(5) {
     border-radius: 20px 0px 0px 20px;
     background-color: @base1;
     border-left: 2px solid #a6e3a1;
 }
 
-#workspaces button:nth-child(9) {
+window.HDMI-A-1 #workspaces button:nth-child(9) {
     border-radius: 20px 20px 20px 20px;
     background-color: @base1;
     border: 2px solid #a6e3a1;
+}
+
+window.eDP-1 #workspaces button:nth-child(9) {
+    margin-right: 20px;
+    border-radius: 0px 20px 20px 0px;
+    background-color: @base1;
+    border-right: 2px solid #a6e3a1;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
     color: @base1;
     background: @highlight;
-    padding-left:10px;
-    padding-right: 10px;
+}
+
+window.HDMI-A-1 #workspaces button.focused,
+window.HDMI-A-1 #workspaces button.active, 
+window.eDP-1 #workspaces button.focused,
+window.eDP-1 #workspaces button.active {
+    color: @base1;
+    background: @highlight;
 }
 
 #workspaces button:first-child {
@@ -272,7 +292,8 @@ Arc-Dark Color Scheme
 #cpu,
 #memory,
 #pulseaudio,
-#custom-wallpaper {
+#custom-wallpaper,
+#battery {
     padding-left: 20px;
     padding-right: 20px;
 }

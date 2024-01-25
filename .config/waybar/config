@@ -1,7 +1,7 @@
-// Global 
+// desktop 
 {
     "layer": "top",
-    "output": ["HDMI-A-1", "eDP-1"],
+    "output": ["HDMI-A-1"],
     "position": "bottom",
 
     // If height property would be not present, it'd be calculated dynamically
@@ -28,6 +28,251 @@
         "cpu",
         "pulseaudio",
         "tray",
+        "custom/power",
+    ],
+
+    // Modules
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+
+    "clock": {
+        "interval": 1,
+        "format-alt": " {:%e %b %Y}", // Icon: calendar-alt
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%e %B %Y}"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%", // Icon: microchip
+        "states": {
+            "warning": 70,
+            "critical": 90,
+        },
+        "on-click": "kitty -e 'htop'",
+    },
+
+    "custom/keyboard-layout": {
+        "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+        // Interval set only as a fallback, as the value is updated by signal
+        "interval": 30,
+        "format": "  {}", // Icon: keyboard
+        // Signal sent by Sway key binding (~/.config/sway/key-bindings)
+        "signal": 1, // SIGHUP
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": " {}%", // Icon: memory
+        "on-click": "kitty -e 'htop'", 
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": " {bandwidthDownBits} - {bandwidthUpBits} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": " {bandwidthDownBits} - {bandwidthUpBits}", // Icon: ethernet
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "on-click": "nm-connection-editor",
+    },
+    "network#vpn": {
+        "interface": "tun0",
+        "format": " {essid} ({signalStrength}%)",
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    },
+
+    "sway/mode": {
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "sway/workspaces": {
+        "on-click": "activate",
+        "active-only": false,
+        "sort-by-number": true,
+        "all-outputs": true,
+        "persistent_workspaces": {
+            "1": ["HDMI-A-1"],
+            "2": ["HDMI-A-1"],
+            "3": ["HDMI-A-1"],
+            "4": ["HDMI-A-1"],
+            "5": ["HDMI-A-1"],
+            "6": ["HDMI-A-1"],
+            "7": ["HDMI-A-1"],
+            "8": ["HDMI-A-1"],
+            "9": ["HDMI-A-1"],
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰈹",
+            "2": "󱓧",
+            "3": "󰓓",
+            "4": "",
+            "5": "󰮂",
+            "6": "󰵅",
+            "7": "",
+            "8": "",
+            "9": ""
+        }
+    },
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "active-only": false,
+        "sort-by-number": true,
+        "all-outputs": true,
+        "persistent_workspaces": {
+            "1": ["HDMI-A-1"],
+            "2": ["HDMI-A-1"],
+            "3": ["HDMI-A-1"],
+            "4": ["HDMI-A-1"],
+            "5": ["HDMI-A-1"],
+            "6": ["HDMI-A-1"],
+            "7": ["HDMI-A-1"],
+            "8": ["HDMI-A-1"],
+            "9": ["HDMI-A-1"],
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰈹",
+            "2": "󱓧",
+            "3": "󰓓",
+            "4": "",
+            "5": "󰮂",
+            "6": "󰵅",
+            "7": "",
+            "8": "",
+            "9": ""
+        }
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}% ",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "וֹ",
+            "headset": "  ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [""]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+    },
+
+    // to use the weather module replace <your_location> with your city or town
+    // note: do not use spaces: new york would be newyork
+    "custom/weather": {
+        "exec": "~/.config/waybar/scripts/weather.sh Freising", 
+        "return-type": "json",
+        "interval": 600,
+        "on-click": "exec gnome-weather"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing":10,
+     },
+
+    "backlight#icon": {
+        "format": "{icon}",
+        "format-icons": [""],
+        "on-scroll-down": "brightnessctl -c backlight set 1%-",
+        "on-scroll-up": "brightnessctl -c backlight set +1%"
+    },
+
+    "backlight#value" :{
+         "format": "{percent}%",
+         "on-scroll-down": "brightnessctl -c backlight set 1%-",
+         "on-scroll-up": "brightnessctl -c backlight set +1%"
+    },
+
+    "custom/power": {
+        "format":"⏻",
+        "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
+        "tooltip": false
+    },
+
+    "custom/media": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 90,
+        "on-click": "exec playerctl play-pause",
+        "on-double-click": "exec hyprctl dispatch workspace 4",
+        "on-click-middle": "exec playerctl next",
+        "on-click-right": "exec playerctl previous",
+        "escape": true,
+        "exec": "mediaplayer.py 2> /dev/null"
+    },
+
+    "custom/wallpaper": {
+        "format": "󰸉",
+        "on-click": "waypaper --restore --random",
+        "on-double-click": "waypaper",
+        "tooltip": false
+    }
+}
+
+
+// laptop 
+{
+    "layer": "top",
+    "output": ["eDP-1"],
+    "position": "bottom",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 30,
+
+    "modules-left": [
+    //    "custom/launcher",
+        "sway/workspaces",
+        "hyprland/workspaces",
+        "custom/wallpaper",
+    ],
+ 
+    "modules-center": [
+],
+
+    "modules-right": [
+
+	"clock",
+        "network",
+        "pulseaudio",
+        "tray",
+        "battery",
         "custom/power",
     ],
 
