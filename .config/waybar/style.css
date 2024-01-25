@@ -52,20 +52,13 @@ Arc-Dark Color Scheme
     padding: 0px;
 }
 
-/* The whole bar */
-window.HDMI-A-1 #waybar {
+#waybar {
     background: transparent;
     color: @text;
     font-family: FiraCode Nerd Font Mono;
     font-size: 16px;
 }
 
-window.eDP-1 #waybar {
-    background: transparent;
-    color: @text;
-    font-family: FiraCode Nerd Font Mono;
-    font-size: 14px;
-}
 
 /* Every module */
 #battery,
