@@ -1,5 +1,5 @@
 // desktop 
-{
+[{
     "layer": "top",
     "output": ["HDMI-A-1"],
     "position": "bottom",
@@ -244,7 +244,7 @@
         "on-double-click": "waypaper",
         "tooltip": false
     }
-}
+},
 
 
 // laptop 
@@ -489,4 +489,4 @@
         "on-double-click": "waypaper",
         "tooltip": false
     }
-}
+}]
