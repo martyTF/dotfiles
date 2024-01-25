@@ -1,7 +1,7 @@
 // Global 
 {
     "layer": "top",
-    "output": ["HDMI-A-1"],
+    "output": ["HDMI-A-1", "eDP-1"],
     "position": "bottom",
 
     // If height property would be not present, it'd be calculated dynamically
