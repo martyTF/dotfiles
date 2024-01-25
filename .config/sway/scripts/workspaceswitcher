@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Get current workspace on current active monitor
+ACTIVEWORKSPACE=$(swaymsg -t get_workspaces --pretty | grep "(focused)" | awk '{ print $2; }')
+# gets left/right direction to switch
+if [ $1 = "left" ]; then
+    if [ $ACTIVEWORKSPACE = 5 ]; then
+        NEWWORKSPACE="number 8"
+    elif [ $ACTIVEWORKSPACE = 1 ]; then
+        NEWWORKSPACE="number 4"
+    elif [ $ACTIVEWORKSPACE = 9 ]; then
+        NEWWORKSPACE="number 9"
+    else
+        NEWWORKSPACE="number $(($ACTIVEWORKSPACE - 1))"
+    fi
+else
+    if [ $ACTIVEWORKSPACE = 8 ]; then
+        NEWWORKSPACE="number 5"
+    elif [ $ACTIVEWORKSPACE = 4 ]; then
+        NEWWORKSPACE="number 1"
+    elif [ $ACTIVEWORKSPACE = 9 ]; then
+        NEWWORKSPACE="number 9"
+    else
+        NEWWORKSPACE="number $(($ACTIVEWORKSPACE + 1))"
+    fi
+fi
+
+sway workspace $NEWWORKSPACE || kitty --hold -e echo error

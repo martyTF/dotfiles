@@ -1,0 +1,45 @@
+[Data Source]
+DisplayName=marty@cloud.marty.tf
+Enabled=true
+Parent=
+
+[Authentication]
+Host=
+Method=plain/password
+Port=0
+ProxyUid=system-proxy
+RememberPassword=true
+User=
+CredentialName=
+IsExternal=true
+
+[Collection]
+BackendName=webdav
+CalendarEnabled=true
+ContactsEnabled=true
+Identity=marty
+MailEnabled=true
+AllowSourcesRename=false
+CalendarUrl=
+ContactsUrl=
+
+[GNOME Online Accounts]
+AccountId=account_1701503708_0
+CalendarUrl=https://marty@cloud.marty.tf/remote.php/dav/
+ContactsUrl=https://marty@cloud.marty.tf/remote.php/dav/
+Name=
+Address=
+
+[WebDAV Backend]
+AvoidIfmatch=false
+CalendarAutoSchedule=false
+Color=
+DisplayName=
+EmailAddress=
+ResourcePath=
+ResourceQuery=
+SslTrust=
+Order=4294967295
+
+[Security]
+Method=none
