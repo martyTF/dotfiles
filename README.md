@@ -55,27 +55,28 @@ as found in the configurations and other useful programs
 - btop
 - cava
 
-> [!note]- #### TODO: Install requirements through the command line
->
-> ``` sh
-> # apt (Debian, Ubuntu, Mint, ...)
-> 
-> sudo apt install git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava flatpak
-> 
-> # dnf (Fedora, Nobara, ...)
-> 
-> sudo dnf install git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava flatpak
-> 
-> 
-> # pacman (Arch, Endeavor, Manjaro, ...)
-> 
-> sudo pacman -Syu git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava asciiquarium-git flatpak 
-> 
-> ```
-> 
-> ``` sh
-> # all distributions
-> 
-> 
-> ```
+<details>
+<summary> #### TODO: Install requirements through the command line </summary>
 
+``` sh
+# apt (Debian, Ubuntu, Mint, ...)
+
+sudo apt install git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava flatpak
+
+# dnf (Fedora, Nobara, ...)
+
+sudo dnf install git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava flatpak
+
+
+# pacman (Arch, Endeavor, Manjaro, ...)
+
+sudo pacman -Syu git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava asciiquarium-git flatpak 
+
+```
+
+``` sh
+# all distributions
+
+
+```
+</details>
