@@ -5,19 +5,22 @@
 case $1 in
 
     install)
-
-        cd $HOME/.dotfiles
-        stow .
-        mkdir $HOME/.local/bin
-        cp mt_dotfiles $HOME/.local/bin/mt_dotfiles
-
-        ;;
+            cd $HOME/.dotfiles
+            stow .
+            mkdir $HOME/.local/bin
+            ln -fsr mt_dotfiles $HOME/.local/bin/mt_dotfiles
+            ;;
     update)
+            cd $HOME/.dotfiles
+            git fetch
+            git pull
+            stow .
+            ;;
 
-        cd $HOME/.dotfiles
-        git fetch
-        git pull
-        stow .
-
-        ;;
+    upload)
+            cd $HOME/.dotfiles
+            git add .
+            git commit -a -m "$2"
+            git push
+            ;;
 esac
