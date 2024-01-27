@@ -40,7 +40,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 20))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 20))
 
 
 ;; If you use `org' and don't want your org files in the default location below,

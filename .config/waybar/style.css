@@ -253,7 +253,7 @@ window.eDP-1 #workspaces button.active {
 
 #workspaces button.urgent {
     background: #f38ba8;
-    color: #f38ba8;
+    color: @base1;
 }
 
 #custom-power {
