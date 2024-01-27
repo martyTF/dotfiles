@@ -1,6 +1,6 @@
 // desktop 
 [{
-    "layer": "bottom",
+    "layer": "top",
     "output": ["HDMI-A-1"],
     "position": "bottom",
 
@@ -249,7 +249,7 @@
 
 // laptop 
 {
-    "layer": "bottom",
+    "layer": "top",
     "output": ["eDP-1"],
     "position": "bottom",
 
