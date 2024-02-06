@@ -200,42 +200,25 @@ window.HDMI-A-1 #workspaces button:nth-child(4),
 window.HDMI-A-1 #workspaces button:nth-child(8) {
     margin-right: 20px;
     border-radius: 0px 20px 20px 0px;
-    background-color: @base1;
     border-right: 2px solid #a6e3a1;
 }
 
 window.HDMI-A-1 #workspaces button:nth-child(5) {
     border-radius: 20px 0px 0px 20px;
-    background-color: @base1;
     border-left: 2px solid #a6e3a1;
 }
 
 window.HDMI-A-1 #workspaces button:nth-child(9) {
     border-radius: 20px 20px 20px 20px;
-    background-color: @base1;
     border: 2px solid #a6e3a1;
 }
 
 window.eDP-1 #workspaces button:nth-child(9) {
     margin-right: 20px;
     border-radius: 0px 20px 20px 0px;
-    background-color: @base1;
     border-right: 2px solid #a6e3a1;
 }
 
-#workspaces button.focused,
-#workspaces button.active {
-    color: @base1;
-    background: @highlight;
-}
-
-window.HDMI-A-1 #workspaces button.focused,
-window.HDMI-A-1 #workspaces button.active, 
-window.eDP-1 #workspaces button.focused,
-window.eDP-1 #workspaces button.active {
-    color: @base1;
-    background: @highlight;
-}
 
 #workspaces button:first-child {
     border-radius: 20px 0px 0px 20px;
@@ -245,16 +228,24 @@ window.eDP-1 #workspaces button.active {
 #workspaces button:first-child.focused,
 #workspaces button:first-child.active {
     border-radius: 20px 0px 0px 20px;
-    color: @base1;
-    background: @highlight;
     padding-left:10px;
     padding-right: 10px;
 }
 
 #workspaces button.urgent {
-    background: #f38ba8;
-    color: @base1;
+    color: #f38ba8;
 }
+
+#workspaces button.visible {
+    color: #a6e3a1;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: #fab387;
+}
+
+
 
 #custom-power {
     font-size:15px;
