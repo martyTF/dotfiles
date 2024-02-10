@@ -4,7 +4,7 @@
 
 ### Installation
 
-``` sh
+```sh
 git clone https://github.com/martyTF/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ./mt_dotfiles install 
@@ -12,13 +12,14 @@ cd ~/.dotfiles
 
 ### Updating
 
-``` sh
+```sh
 mt_dotfiles update
 ```
 
 ### Requirements
 
 #### Installation
+
 these terminal programs will be used to install and update the configuration
 
 - git
@@ -26,6 +27,7 @@ these terminal programs will be used to install and update the configuration
 - flatpak
 
 #### Window Manager
+
 these programs are critical to the usage of the window manager, however you can choose between hyprland and sway
 
 - [hyprland](https://hyprland.org/) / [sway](https://swaywm.org/)
@@ -34,6 +36,7 @@ these programs are critical to the usage of the window manager, however you can 
 - [waypaper](https://github.com/anufrievroman/waypaper)
 
 #### Applications
+
 as found in the configurations for e.g. autostart or waybar interactions
 
 - [Kitty Terminal](https://sw.kovidgoyal.net/kitty/)
@@ -48,6 +51,7 @@ as found in the configurations for e.g. autostart or waybar interactions
 - [GNU Emacs](https://www.gnu.org/software/emacs/)
 
 #### Terminal programs
+
 as found in the configurations and other useful programs
 
 - htop
@@ -58,7 +62,7 @@ as found in the configurations and other useful programs
 <details>
 <summary> #### TODO: Install requirements through the command line </summary>
 
-``` sh
+```sh
 # apt (Debian, Ubuntu, Mint, ...)
 
 sudo apt install git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava flatpak
@@ -71,12 +75,11 @@ sudo dnf install git stow hyprland sway waybar pip kitty firefox steam emacs hto
 # pacman (Arch, Endeavor, Manjaro, ...)
 
 sudo pacman -Syu git stow hyprland sway waybar pip kitty firefox steam emacs htop btop cava asciiquarium-git flatpak 
-
 ```
 
-``` sh
+```sh
 # all distributions
 
-
 ```
+
 </details>
