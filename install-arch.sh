@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Arch Linux - pacman
 sudo pacman -S --noconfirm git stow emacs flatpak firefox fish lib32-amdvlk steam wofi hyprland waybar atuin ranger gnome-keyring btop fuse nautilus nwg-look mpv neofetch pavucontrol xdg-desktop-portal-gtk kdeconnect swaylock wget
 

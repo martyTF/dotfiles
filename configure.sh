@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Change shell to fish
 case $SHELL in
     */fish)
