@@ -18,7 +18,7 @@ case $(which yay) in
 cd
 
 # Arch Linux - yay
-for i in swww waypaper grimshot protonmail-bridge cava asciiquarium-transparent-git catppuccin-gtk-theme-mocha clipman nerdfetch bunnyfetch fastfetch unzip steamtinkerlaunch fd ripgrep shellcheck tidy stylelint js-beautify; do pacman -Qm | grep "^$i " && echo "$i is installed, skipping" || yay -S --noconfirm $i; done
+for i in swww waypaper grimshot protonmail-bridge cava asciiquarium-transparent-git catppuccin-gtk-theme-mocha clipman nerdfetch bunnyfetch fastfetch unzip steamtinkerlaunch fd ripgrep shellcheck tidy stylelint js-beautify mako; do pacman -Qm | grep "^$i " && echo "$i is installed, skipping" || yay -S --noconfirm $i; done
 
 # Universal - install doom emacs
 case config.el in
