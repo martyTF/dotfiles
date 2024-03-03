@@ -22,3 +22,11 @@ sudo flatpak override --filesystem=~/.config/gtk-3.0
 sudo flatpak override --filesystem=~/.config/gtk-4.0
 sudo flatpak override --filesystem=~/.local/share/fonts
 sudo flatpak override --env=GTK_THEME=Catppuccin-Mocha-Standard-Rosewater-Dark:dark
+
+# Install dotfiles
+git clone https://github.com/martyTF/dotfiles ~/.dotfiles
+
+
+# Stow dotfiles
+for i in $(ls ~/.dotfiles/.config/); do rm -r ~/.config/$i; done; cd ~/.dotfiles; stow .
+cd
