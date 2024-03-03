@@ -2,7 +2,3 @@
 .idea
 *.log
 tmp/
-.sync_26ffaf667932.db-wal
-.sync_26ffaf667932.db
-.sync_26ffaf667932.db-shm
-.nextcloudsync.log
