@@ -1,0 +1,9 @@
+\.git
+README.md
+README.org
+mt_dotfiles
+.sync_26ffaf667932.db-wal
+.sync_26ffaf667932.db
+.sync_26ffaf667932.db-shm
+.nextcloudsync.log  
+.gitignore

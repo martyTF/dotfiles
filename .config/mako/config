@@ -1,0 +1,26 @@
+font=FiraCode Nerd Font Mono 20
+
+width=315
+height=200
+padding=10
+margin=10
+max-icon-size=70
+layer=overlay
+
+border-size=2
+border-radius=20
+
+default-timeout=5000
+
+# Colors
+
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#f38ba8
+progress-color=over #f38ba8
+
+[urgency=high]
+
+ignore-timeout=1
+
+border-color=#fab387

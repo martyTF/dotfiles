@@ -1,0 +1,23 @@
+# SwayWM Config file
+# by and for
+# MartyTF
+
+
+# important commands to preload before configuration
+
+xwayland enable
+
+# important binds
+
+set $mod Mod4
+set $left LEFT
+set $down DOWN
+set $up UP
+set $right RIGHT
+set $term-float kitty
+set $menu wofi -c ~/.config/wofi/config -I
+set $powermenu ~/.config/waybar/scripts/power-menu.sh
+
+# user config directory
+
+include $HOME/.config/sway/config.d/*
