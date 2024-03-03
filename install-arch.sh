@@ -58,4 +58,4 @@ am install feishin
 
 # Configuration
 
-bash $(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/configure.sh)
+bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/configure.sh)"
