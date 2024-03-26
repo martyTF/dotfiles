@@ -9,7 +9,7 @@
 
     "modules-left": [
       "sway/workspaces",
-      "hyprland/workspaces",
+//      "hyprland/workspaces",
       "custom/wallpaper",
       "custom/media",
     ],
@@ -87,7 +87,7 @@
             "6": ["HDMI-A-1"],
             "7": ["HDMI-A-1"],
             "8": ["HDMI-A-1"],
-            "9": ["HDMI-A-1"],
+            "9": ["HDMI-A-1"]
         },
         "format": "{icon}",
         "format-icons": {
@@ -117,7 +117,7 @@
             "6": ["HDMI-A-1"],
             "7": ["HDMI-A-1"],
             "8": ["HDMI-A-1"],
-            "9": ["HDMI-A-1"],
+            "9": ["HDMI-A-1"]
         },
         "format": "{icon}",
         "format-icons": {
@@ -174,14 +174,14 @@
     },
 
     "custom/media": {
-        "format": "{}",
         "return-type": "json",
+        "interval": 3,
         "max-length": 90,
         "on-click": "exec playerctl play-pause",
         "on-click-middle": "exec playerctl next",
         "on-click-right": "exec playerctl previous",
         "escape": true,
-        "exec": "/home/marty/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+        "exec": "~/.config/waybar/scripts/mediaplayer.sh"
     },
 
     "custom/wallpaper": {
