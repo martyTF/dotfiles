@@ -201,8 +201,8 @@
     "height": 30,
 
     "modules-left": [
-      "sway/workspaces",
-      "hyprland/workspaces",
+//    "sway/workspaces",
+//    "hyprland/workspaces",
       "custom/wallpaper",
     ],
 

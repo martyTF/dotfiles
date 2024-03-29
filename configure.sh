@@ -5,7 +5,7 @@ case $SHELL in
     */fish)
         ;;
     *)
-        chsh -s $(which fish)
+        chsh -s /usr/bin/fish
         ;;
     esac
 
@@ -42,18 +42,18 @@ case $ISDOTFILES in
         ;;
     yes)
         cd ~/.dotfiles
-        git pull
+        git pull --rebase
         cd
         ;;
     esac
 
 
 # Stow dotfiles
-ls ~/.config-bak 2> /dev/null && ISSTOW=yes || ISSTOW=no
+ls ~/.bak-config 2> /dev/null && ISSTOW=yes || ISSTOW=no
 case $ISSTOW in
     no)
-        mkdir ~/.config-bak
-        for i in $(ls ~/.dotfiles/.config/); do mv ~/.config/$i ~/.config-bak/$i; done
+        mkdir ~/.bak-config
+        for i in $(ls ~/.dotfiles/.config/); do mv ~/.config/$i ~/.bak-config/$i; done
         cd ~/.dotfiles
         stow .
         cd
@@ -64,3 +64,18 @@ case $ISSTOW in
         cd
         ;;
     esac
+
+# make scripts executable
+# waybar
+chmod +x ~/.config/waybar/scripts/*
+# wofi
+chmod +x ~/.config/wofi/power.sh
+# ranger
+chmod +x ~/.config/ranger/scope.sh
+
+# make .local/bin executable
+# .local/bin
+chmod +x ~/.local/bin/*
+
+# remove sudo requirement from backlight command
+sudo chmod +s /usr/bin/light

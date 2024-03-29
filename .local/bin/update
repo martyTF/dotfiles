@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+ping -q -c 1 marty.tf || exit
+for i in pacman apt dnf; do which $i 2> /dev/null && PACKAGEMANAGER=$i; done
+case $PACKAGEMANAGER in
+    pacman)
+        sudo pacman -Syu --noconfirm
+        bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "sudo pacman -S --noconfirm git")"
+        yay -Syu --noconfirm
+        bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "for i in swww")"
+        ;;
+#   apt)
+#       sudo apt update
+#       sudo apt upgrade -y
+#       ;;
+#   dnf)
+#       sudo dnf update -y
+#       ;;
+    *)
+        echo "none of the supported package managers (so far only arch's pacman/yay) found, won't update any system packages, please do so manually yourself"
+        ;;
+    esac
+flatpak update -y
+am update -y
+cd ~/.config/emacs
+git pull --rebase
+cd
+$HOME/.config/emacs/bin/doom sync -u
+echo ~/.dotfiles/.*/ | grep ".git/" && DOTFILESGIT=1
+if [ $DOTFILESGIT -eq 1 ]
+   then
+       cd ~/.dotfiles
+       git pull --rebase
+       stow .
+       cd
+       else
+           cd ~/.dotfiles
+           stow .
+           cd
+           fi
