@@ -13,13 +13,13 @@ WAKEUPTIMETODAY=$(($PCTIMESET+$CHECKTODAY))
 WAKEUPTIMETOMORROW=$(($WAKEUPTIMETODAY+86400))
 if [ $WAKEUPTIMETODAY -ge $(date +%s) ]
 then
-    sudo echo "Waking up Today at $HUMANTIMESET ! Good Night!"
+    echo "Waking up Today at $HUMANTIMESET ! Good Night!"
     sleep 3
-    sudo rtcwake -m mem -t $WAKEUPTIMETODAY
+    rtcwake -m mem -t $WAKEUPTIMETODAY
 else
-    sudo echo Waking up Tomorrow at $HUMANTIMESET ! Good Night!
+    echo Waking up Tomorrow at $HUMANTIMESET ! Good Night!
     sleep 3
-    sudo rtcwake -m mem -t $WAKEUPTIMETOMORROW
+    rtcwake -m mem -t $WAKEUPTIMETOMORROW
 fi
 ;;
 

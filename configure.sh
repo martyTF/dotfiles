@@ -77,5 +77,6 @@ chmod +x ~/.config/ranger/scope.sh
 # .local/bin
 chmod +x ~/.local/bin/*
 
-# remove sudo requirement from backlight command
-sudo chmod +s /usr/bin/light
+# remove sudo requirement from a few commands
+sudo chmod +s $(which light)
+sudo chmod +s $(which rtcwake)
