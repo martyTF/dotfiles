@@ -3,10 +3,15 @@ ping -q -c 1 marty.tf || exit
 for i in pacman apt dnf; do which $i 2> /dev/null && PACKAGEMANAGER=$i; done
 case $PACKAGEMANAGER in
     pacman)
+        GETPACMAN="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "sudo pacman -S --noconfirm git")"
+        GETYAY="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "for i in swww")"
         sudo pacman -Syu --noconfirm
-        bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "sudo pacman -S --noconfirm git")"
+        cat ~/.config/mtfiles/update/pacman | grep "$GETPACMAN" || bash -c "$GETPACMAN"
+        echo "$GETPACMAN" > ~/.config/mtfiles/update/pacman
         yay -Syu --noconfirm
-        bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "for i in swww")"
+        cat ~/.config/mtfiles/update/yay | grep "$GETYAY" || bash -c "$GETYAY"
+        echo "$GETYAY" > ~/.config/mtfiles/update/yay
+
         ;;
     apt)
         sudo apt update

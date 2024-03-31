@@ -10,21 +10,6 @@ case $SHELL in
     esac
 
 # THEMING
-# Install Catppuccin Mocha Rosewater GTK Theme for flatpak
-ls ~/.themes 2> /dev/null && ISTHEME=yes || ISTHEME=no
-case $ISTHEME in
-    no)
-        mkdir ~/.themes
-        wget https://github.com/catppuccin/gtk/releases/download/v0.7.1/Catppuccin-Mocha-Standard-Rosewater-Dark.zip
-        unzip -o -d ~/.themes/ Catppuccin-Mocha-Standard-Rosewater-Dark.zip
-        rm Catppuccin-Mocha-Standard-Rosewater-Dark.zip
-        ;;
-    yes)
-        echo "bruh"
-        ;;
-    esac
-
-
 # Flatpak theming
 sudo flatpak override --filesystem=~/.themes
 sudo flatpak override --filesystem=~/.icons
