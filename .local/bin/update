@@ -20,7 +20,7 @@ case $PACKAGEMANAGER in
         ;;
     esac
 flatpak update -y
-bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "flatpak install -y flathub org.signal.Signal")""
+bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "flatpak install -y flathub org.signal.Signal")"
 am update
 cd ~/.config/emacs
 git pull --rebase
