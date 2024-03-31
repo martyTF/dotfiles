@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 ping -q -c 1 marty.tf || exit
+
 for i in pacman apt dnf; do which $i 2> /dev/null && PACKAGEMANAGER=$i; done
 case $PACKAGEMANAGER in
     pacman)
@@ -24,13 +25,22 @@ case $PACKAGEMANAGER in
         echo "none of the supported package managers (so far only arch's pacman/yay) found, won't update any system packages, please do so manually yourself"
         ;;
     esac
+
 flatpak update -y
-bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "flatpak install -y flathub org.signal.Signal")"
+GETFLATPAK="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install.sh | grep "flatpak install -y flathub org.signal.Signal")"
+cat ~/.config/mtfiles/update/flatpak | grep "$GETFLATPAK" || bash -c "$GETFLATPAK"
+echo "$GETFLATPAK" > ~/.config/mtfiles/update/flatpak
+
 am update
+GETAM="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install.sh | grep "am install ")"
+cat ~/.config/mtfiles/update/am | grep "$GETAM" || bash -c "$GETAM"
+echo "$GETAM" > ~/.config/mtfiles/update/am
+
 cd ~/.config/emacs
 git pull --rebase
 cd
 $HOME/.config/emacs/bin/doom sync -u
+
 echo ~/.dotfiles/.*/ | grep ".git/" && DOTFILESGIT=1
 if [ $DOTFILESGIT -eq 1 ]
    then
