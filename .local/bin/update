@@ -8,19 +8,19 @@ case $PACKAGEMANAGER in
         yay -Syu --noconfirm
         bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "for i in swww")"
         ;;
-#   apt)
-#       sudo apt update
-#       sudo apt upgrade -y
-#       ;;
-#   dnf)
-#       sudo dnf update -y
-#       ;;
+    apt)
+        sudo apt update
+        sudo apt upgrade -y
+        ;;
+    dnf)
+        sudo dnf update -y
+        ;;
     *)
         echo "none of the supported package managers (so far only arch's pacman/yay) found, won't update any system packages, please do so manually yourself"
         ;;
     esac
 flatpak update -y
-am update -y
+am update
 cd ~/.config/emacs
 git pull --rebase
 cd
