@@ -2,4 +2,5 @@
 .idea
 *.log
 tmp/
-.config/mtfiles/upate/*
+.config/mtfiles/update/*
+!.config/mtfiles/update/update
