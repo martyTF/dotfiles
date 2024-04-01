@@ -4,3 +4,5 @@
 tmp/
 .config/mtfiles/update/*
 !.config/mtfiles/update/update
+.cache/
+.local/bin/modrinth*

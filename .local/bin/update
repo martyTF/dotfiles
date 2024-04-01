@@ -7,11 +7,11 @@ case $PACKAGEMANAGER in
         GETPACMAN="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "sudo pacman -S --noconfirm git")"
         GETYAY="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "for i in swww")"
         sudo pacman -Syu --noconfirm
-        cat ~/.config/mtfiles/update/pacman | grep "$GETPACMAN" || bash -c "$GETPACMAN"
-        echo "$GETPACMAN" > ~/.config/mtfiles/update/pacman
+        cat ~/.cache/mtfiles/update/pacman | grep "$GETPACMAN" || bash -c "$GETPACMAN"
+        echo "$GETPACMAN" > ~/.cache/mtfiles/update/pacman
         yay -Syu --noconfirm
-        cat ~/.config/mtfiles/update/yay | grep "$GETYAY" || bash -c "$GETYAY"
-        echo "$GETYAY" > ~/.config/mtfiles/update/yay
+        cat ~/.cache/mtfiles/update/yay | grep "$GETYAY" || bash -c "$GETYAY"
+        echo "$GETYAY" > ~/.cache/mtfiles/update/yay
 
         ;;
     apt)
@@ -28,13 +28,13 @@ case $PACKAGEMANAGER in
 
 flatpak update -y
 GETFLATPAK="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install.sh | grep "flatpak install -y flathub org.signal.Signal")"
-cat ~/.config/mtfiles/update/flatpak | grep "$GETFLATPAK" || bash -c "$GETFLATPAK"
-echo "$GETFLATPAK" > ~/.config/mtfiles/update/flatpak
+cat ~/.cache/mtfiles/update/flatpak | grep "$GETFLATPAK" || bash -c "$GETFLATPAK"
+echo "$GETFLATPAK" > ~/.cache/mtfiles/update/flatpak
 
 am update
 GETAM="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install.sh | grep "am install ")"
-cat ~/.config/mtfiles/update/am | grep "$GETAM" || bash -c "$GETAM"
-echo "$GETAM" > ~/.config/mtfiles/update/am
+cat ~/.cache/mtfiles/update/am | grep "$GETAM" || bash -c "$GETAM"
+echo "$GETAM" > ~/.cache/mtfiles/update/am
 
 cd ~/.config/emacs
 git pull --rebase
