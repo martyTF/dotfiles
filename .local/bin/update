@@ -45,7 +45,8 @@ echo ~/.dotfiles/.*/ | grep ".git/" && DOTFILESGIT=1
 if [ $DOTFILESGIT -eq 1 ]
    then
        cd ~/.dotfiles
-       git pull --rebase
+       git stash
+       git pull
        stow .
        cd
        else
