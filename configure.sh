@@ -9,6 +9,12 @@ case $SHELL in
         ;;
     esac
 
+# enable wakeonlan
+ETHERNET=$(ls /sys/class/net | grep en)
+ADDRESS=$(cat /sys/class/net/$ETHERNET/address)
+sudo echo "ACTION==\"add\", ATTRS{address}==\"$ADDRESS\", RUN+=\"/usr/sbin/ethtool -s  wol g\"" > /usr/lib/udev/rules.d/51-wakeonlan.rules
+sudo udevadm control --reload
+
 # THEMING
 # Flatpak theming
 sudo flatpak override --filesystem=~/.themes

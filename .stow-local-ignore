@@ -1,8 +1,9 @@
-\.git
+.git
 .gitignore
 README.md
+README.org
 configure.sh
+install.sh
 install-arch.sh
-.nextcloudsync.log
-.sync_26ffaf667932.db
-.sync_26ffaf667932.db-wal
+install-debian.sh
+install-fedora.sh

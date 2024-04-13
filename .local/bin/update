@@ -6,11 +6,11 @@ case $PACKAGEMANAGER in
     pacman)
         GETPACMAN="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "sudo pacman -S --noconfirm git")"
         GETYAY="$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/install-arch.sh | grep "for i in swww")"
+        yay -Syu --noconfirm
+        cat ~/.cache/mtfiles/update/yay | grep "$GETYAY" || bash -c "$GETYAY"
         sudo pacman -Syu --noconfirm
         cat ~/.cache/mtfiles/update/pacman | grep "$GETPACMAN" || bash -c "$GETPACMAN"
         echo "$GETPACMAN" > ~/.cache/mtfiles/update/pacman
-        yay -Syu --noconfirm
-        cat ~/.cache/mtfiles/update/yay | grep "$GETYAY" || bash -c "$GETYAY"
         echo "$GETYAY" > ~/.cache/mtfiles/update/yay
 
         ;;
@@ -54,3 +54,5 @@ if [ $DOTFILESGIT -eq 1 ]
            stow .
            cd
            fi
+
+bash -c "$(curl https://raw.githubusercontent.com/martyTF/dotfiles/main/configure.sh | grep "chmod +" )"

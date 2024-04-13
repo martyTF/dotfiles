@@ -2,6 +2,4 @@
 .idea
 *.log
 tmp/
-.config/mtfiles/update/*
-!.config/mtfiles/update/update
 .local/bin/modrinth*
