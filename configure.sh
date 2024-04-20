@@ -40,21 +40,10 @@ case $ISDOTFILES in
 
 
 # Stow dotfiles
-ls ~/.bak-config 2> /dev/null && ISSTOW=yes || ISSTOW=no
-case $ISSTOW in
-    no)
-        mkdir ~/.bak-config
-        for i in $(ls ~/.dotfiles/.config/); do mv ~/.config/$i ~/.bak-config/$i; done
-        cd ~/.dotfiles
-        stow .
-        cd
-        ;;
-    yes)
-        cd ~/.dotfiles
-        stow .
-        cd
-        ;;
-    esac
+for i in $(ls ~/.dotfiles/.config); do
+    ls ~/.bak-config/ | grep $i || mv ~/.config/$i ~/.bak-config/$i;
+done
+cd ~/.dotfiles; stow .; cd
 
 # make scripts executable
 # waybar

@@ -3,3 +3,5 @@
 *.log
 tmp/
 .local/bin/modrinth*
+.cache
+!.cache/mtfiles/update/update
