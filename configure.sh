@@ -49,7 +49,7 @@ cd ~/.dotfiles; stow .; cd
 # waybar
 chmod +x ~/.config/waybar/scripts/*
 # wofi
-chmod +x ~/.config/wofi/power.sh
+chmod +x ~/.config/wofi/*.sh
 # ranger
 chmod +x ~/.config/ranger/scope.sh
 
