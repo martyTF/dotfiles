@@ -8,7 +8,13 @@ case $selected in
     logout)
         pkill -u $(whoami);;
     suspend)
-        exec systemctl suspend;;
+        selected2=$(printf '' | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
+        case $selected2 in
+            "")
+                exec systemctl suspend;;
+            *)
+                exec ~/.local/bin/msleep $selected2;;
+            esac;;
     reboot)
         exec systemctl reboot;;
     shutdown)
