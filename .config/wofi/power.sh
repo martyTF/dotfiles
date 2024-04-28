@@ -8,11 +8,13 @@ case $selected in
     logout)
         pkill -u $(whoami);;
     suspend)
-        selected2=$(printf '' | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
+        entries2=$(cat ~/.cache/mtfiles/msleep_times)
+        selected2=$(printf '%s\n' $entries2 | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
         case $selected2 in
             "")
                 exec systemctl suspend;;
             *)
+                grep $selected2 ~/.cache/mtfiles/msleep_times || echo $selected2 >> ~/.cache/mtfiles/msleep_times
                 exec ~/.local/bin/msleep $selected2;;
             esac;;
     reboot)
