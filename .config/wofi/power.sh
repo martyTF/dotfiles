@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-entries="Logout Suspend Reboot Shutdown Reload"
+entries="Suspend Logout Reboot Shutdown Reload"
 
 selected=$(printf '%s\n' $entries | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
 
@@ -13,9 +13,11 @@ case $selected in
         case $selected2 in
             "")
                 exec systemctl suspend;;
-            *)
+            [0-2][0-9]:[0-5][0-9])
                 grep $selected2 ~/.cache/mtfiles/msleep_times || echo $selected2 >> ~/.cache/mtfiles/msleep_times
                 exec ~/.local/bin/msleep $selected2;;
+            *)
+                exit;;
             esac;;
     reboot)
         exec systemctl reboot;;
