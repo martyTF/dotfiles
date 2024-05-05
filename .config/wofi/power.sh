@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 
-entries="Suspend Logout Reboot Shutdown Reload"
+entries="Suspend Logout Shutdown Reload"
 
 selected=$(printf '%s\n' $entries | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
 
 case $selected in
     logout)
-        pkill -u $(whoami);;
+        entries2="LY-DM TTY"
+        selected2=$(printf '%s\n' $entries2 | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
+        case $selected2 in
+            ly-dm)
+                pkill -u $(whoami);;
+            tty)
+                pkill -u $(whoami)
+                chvt 5;;
     suspend)
-        entries2=$(cat ~/.cache/mtfiles/msleep_times)
+        entries2=$(cat ~/.cache/mtfiles/msleep_times | sort)
         selected2=$(printf '%s\n' $entries2 | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
         case $selected2 in
             "")
@@ -19,10 +26,14 @@ case $selected in
             *)
                 exit;;
             esac;;
-    reboot)
-        exec systemctl reboot;;
     shutdown)
-        exec systemctl poweroff -i;;
+        entries2="Shutdown Reboot"
+        selected2=$(printf '%s\n' $entries2 | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
+        case $selected2 in
+            reboot)
+                exec systemctl reboot;;
+            shutdown)
+                exec systemctl poweroff -i;;
     reload)
         exec hyprctl reload
         exec sway reload;;

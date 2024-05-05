@@ -60,3 +60,4 @@ chmod +x ~/.local/bin/*
 # remove sudo requirement from a few commands
 sudo chmod +s $(which light)
 sudo chmod +s $(which rtcwake)
+sudo chmod +s $(which chvt)
