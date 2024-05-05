@@ -14,6 +14,7 @@ case $selected in
             tty)
                 pkill -u $(whoami)
                 chvt 5;;
+            esac;;
     suspend)
         entries2=$(cat ~/.cache/mtfiles/msleep_times | sort)
         selected2=$(printf '%s\n' $entries2 | wofi --conf=$HOME/.config/wofi/config_power --style=$HOME/.config/wofi/style.css | awk '{print tolower($1)}')
@@ -34,6 +35,7 @@ case $selected in
                 exec systemctl reboot;;
             shutdown)
                 exec systemctl poweroff -i;;
+            esac;;
     reload)
         exec hyprctl reload
         exec sway reload;;
