@@ -12,8 +12,8 @@ case $selected in
             ly-dm)
                 pkill -u $(whoami);;
             tty)
-                pkill -u $(whoami)
-                chvt 5;;
+                chvt 5
+                pkill -u $(whoami);;
             esac;;
     suspend)
         entries2=$(cat ~/.cache/mtfiles/msleep_times | sort)
