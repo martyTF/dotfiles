@@ -5,3 +5,5 @@ tmp/
 .local/bin/modrinth*
 .cache
 !.cache/mtfiles/update/update
+.config/hypr/*
+!.config/hypr/hyprland.conf
