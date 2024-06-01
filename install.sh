@@ -45,7 +45,7 @@ cd
 curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh
 
 # Universal - flatpak
-flatpak install -y flathub org.signal.Signal dev.vencord.Vesktop com.github.iwalton3.jellyfin-media-player com.nextcloud.desktopclient.nextcloud org.gimp.GIMP org.mozilla.Thunderbird org.telegram.desktop org.prismlauncher.PrismLauncher page.kramo.Cartridges chat.revolt.RevoltDesktop at.vintagestory.VintageStory md.obsidian.Obsidian im.riot.Riot io.gitlab.news_flash.NewsFlash
+flatpak install -y flathub org.signal.Signal dev.vencord.Vesktop com.github.iwalton3.jellyfin-media-player com.nextcloud.desktopclient.nextcloud org.gimp.GIMP org.mozilla.Thunderbird org.telegram.desktop org.prismlauncher.PrismLauncher page.kramo.Cartridges chat.revolt.RevoltDesktop at.vintagestory.VintageStory md.obsidian.Obsidian im.riot.Riot me.hyliu.fluentreader
 
 # Universal - am
 am install feishin
