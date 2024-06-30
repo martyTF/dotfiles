@@ -2,7 +2,7 @@
 
 # Arch Linux - pacman
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm git stow emacs flatpak firefox fish lib32-amdvlk steam wofi hyprland waybar atuin ranger gnome-keyring btop fuse nautilus nwg-look mpv neofetch pavucontrol xdg-desktop-portal-gtk kdeconnect swaylock wget less ethtool onefetch gnome-weather bluez bluez-utils tailscale libnotify cronie rbw wtype rbw-rofi pandoc
+sudo pacman -S --noconfirm git stow emacs flatpak firefox fish lib32-amdvlk steam wofi hyprland waybar atuin ranger gnome-keyring btop fuse nautilus nwg-look mpv neofetch pavucontrol xdg-desktop-portal-gtk kdeconnect swaylock wget less ethtool onefetch gnome-weather bluez bluez-utils tailscale libnotify cronie rbw wtype rbw-rofi pandoc seahorse
 
 # Arch Linux - install yay
 case $(which yay) in
