@@ -1,4 +1,5 @@
 [{
+
     "layer": "top",
     "output": ["HDMI-A-1", "eDP-1", "LVDS-1"],
     "position": "bottom",
@@ -9,32 +10,21 @@
       "tray",
       "custom/media",
     ],
+
     "modules-center": [
-],
+    ],
 
     "modules-right": [
       "clock",
-//      "custom/weather",
+      //"custom/weather",
       "group/power",
     ],
 
-// MODULES
-    "group/power": {
-        "orientation": "inherit",
-        "drawer": {
-                "transition-duration": 300,
-                "transition-left-to-right": false,
-                },
-        "modules": [
-                "custom/power",
-                "cpu",
-                "memory",
-                "network",
-                "battery",
-                "backlight",
-                "pulseaudio",
-                ]
-        },
+    "tray": {
+        "icon-size": 18,
+        "spacing":10,
+     },
+
     "clock": {
         "interval": 1,
         "format-alt": " {:%e %b %Y}",
@@ -64,8 +54,8 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": " {bandwidthDownBits} - {bandwidthUpBits} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": " {bandwidthDownBits} - {bandwidthUpBits}", // Icon: ethernet
+        "format-wifi": " {bandwidthDownBits} - {bandwidthUpBits} ({signalStrength}%)",
+        "format-ethernet": " {bandwidthDownBits} - {bandwidthUpBits}",
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}",
         "on-click": "nm-connection-editor",
@@ -77,7 +67,7 @@
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
     },
 
-        "pulseaudio": {
+    "pulseaudio": {
         "scroll-step": 5,
         "format": "{icon} {volume}% ",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
@@ -99,39 +89,6 @@
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     },
 
-    "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.sh Freising",
-        "return-type": "json",
-        "interval": 600,
-        "on-click": "exec gnome-weather"
-    },
-
-    "tray": {
-        "icon-size": 18,
-        "spacing":10,
-     },
-        "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-icons": [" ", " ", " ", " ", " "]
-    },
-    "backlight" :{
-         "format": " {percent}%",
-        "on-scroll-down": "light -U 10",
-        "on-scroll-up": "light -A 10"
-    },
-    "custom/power": {
-        "format":"⏻",
-        "on-click": "exec ~/.config/wofi/power.sh",
-        "tooltip": false
-    },
-
     "custom/media": {
         "return-type": "json",
         "interval": 3,
@@ -143,10 +100,47 @@
         "exec": "~/.config/waybar/scripts/mediaplayer.sh"
     },
 
+    "custom/weather": {
+        "exec": "~/.config/waybar/scripts/weather.sh Freising",
+        "return-type": "json",
+        "interval": 600,
+        "on-click": "exec gnome-weather"
+    },
+
     "custom/wallpaper": {
         "format": "󰸉",
         "on-click": "waypaper --restore --random",
         "on-double-click": "waypaper",
         "tooltip": false
-    }
+    },
+
+    "custom/power": {
+        "format":"⏻",
+        "on-click": "exec ~/.config/wofi/power.sh",
+        "tooltip": false
+    },
+
+    "backlight" :{
+         "format": " {percent}%",
+        "on-scroll-down": "light -U 10",
+        "on-scroll-up": "light -A 10"
+    },
+
+      "group/power": {
+        "orientation": "inherit",
+        "drawer": {
+                "transition-duration": 300,
+                "transition-left-to-right": false,
+                },
+        "modules": [
+                "custom/power",
+                "cpu",
+                "memory",
+                "network",
+                "battery",
+                "backlight",
+                "pulseaudio",
+                ]
+        }
+
 }]
