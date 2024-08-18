@@ -61,3 +61,4 @@ chmod +x ~/.local/bin/*
 sudo chmod +s $(which light)
 sudo chmod +s $(which rtcwake)
 sudo chmod +s $(which chvt)
+sudo chmod +s $(which systemctl)
