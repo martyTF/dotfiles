@@ -116,7 +116,7 @@
 
     "custom/power": {
         "format":"⏻",
-        "on-click": "exec ~/.config/rofi/power.sh",
+        "on-click": "exec ~/.config/wofi/power.sh",
         "tooltip": false
     },
 
